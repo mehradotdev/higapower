@@ -1,27 +1,28 @@
 # Higa Power
 
-A static Astro website for Higa Power, ready for Cloudflare Pages or Vercel.
+A static website for [Higa Power](https://higapower.org) built with [Astro](https://astro.build/) and [Tailwind CSS v4](https://tailwindcss.com/).
 
-## Update the site
+## Project Structure
 
-- Main page copy and section structure: `src/pages/index.astro`
-- Testimonials and gallery captions: `src/data/content.ts`
-- Brand styles and responsive layout: `src/styles/global.css`
-- Photographs, logo, favicon, and social card: `public/assets/images`
+- `src/components/` — Modular UI sections and interactive components.
+- `src/data/` — Site copy, gallery/testimonial collections, and TypeScript interfaces.
+- `src/layouts/` — Base HTML layout with SEO, OpenGraph tags, and JSON-LD schema.
+- `src/pages/` — Page entrypoints and static route composition.
+- `src/styles/` — Global stylesheet and Tailwind v4 `@theme` design tokens.
+- `public/assets/` — Photographs, videos, brand logos, and icons.
 
-## Local development
+## Development
 
 ```sh
 npm install
 npm run dev
 ```
 
-## Production build
+## Production Build
 
 ```sh
 npm run build
+npm run preview
 ```
 
-The deployable static site is generated in `dist/`.
-
-For Cloudflare Pages or Vercel, use `npm run build` as the build command and `dist` as the output directory.
+The static site is generated in `dist/`, ready for Cloudflare Pages, Vercel, or Netlify.

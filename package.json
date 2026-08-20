@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@astrojs/check": "latest",
+    "@astrojs/sitemap": "^3.7.3",
+    "@tailwindcss/vite": "^4.3.3",
     "astro": "latest",
+    "tailwindcss": "^4.3.3",
     "typescript": "latest"
   }
 }

@@ -1,0 +1,55 @@
+---
+---
+
+<section class="intro section" id="about">
+  <div class="shell intro-grid">
+    <div class="section-heading reveal">
+      <p class="kicker">Our purpose</p>
+      <h2>A historic path.<br /><span>A new beginning.</span></h2>
+    </div>
+    <div class="intro-copy reveal">
+      <p class="lead">At Higa Power, we believe in the life-changing impact of the Camino de Santiago.</p>
+      <p>
+        We sponsor deserving women to embark on this historic pilgrimage, providing the resources and support they need to succeed. Our mission is to create the opportunity for self-discovery, growth and personal transformation.
+      </p>
+      <p>
+        It’s a supportive community where women find the courage to break free from limitations and embrace their authentic voice.
+      </p>
+      <a class="text-link" href="#journey">
+        How sponsorship works <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1fr;
+    gap: clamp(50px, 9vw, 130px);
+    align-items: start;
+  }
+
+  .intro-copy {
+    padding-top: 28px;
+  }
+
+  .intro-copy p:not(.lead) {
+    color: var(--color-muted);
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 960px) {
+    .intro-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .intro-copy {
+      padding-top: 0;
+    }
+  }
+</style>

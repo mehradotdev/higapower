@@ -1,0 +1,190 @@
+---
+---
+
+<section class="hero" id="home">
+  <div class="hero-photo" role="img" aria-label="Women setting out on the Camino de Santiago"></div>
+  <div class="hero-shade"></div>
+  
+  <div class="hero-content shell">
+    <p class="eyebrow">A Camino collective for women</p>
+    <h1>Every journey begins with one <em>brave step.</em></h1>
+    <p class="hero-copy">
+      We sponsor deserving women to walk the Camino de Santiago—creating space for courage, connection, and life-changing transformation.
+    </p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="#journey">
+        Begin your journey <span aria-hidden="true">→</span>
+      </a>
+      <a class="button button-quiet" href="#about">
+        Discover Higa Power
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-note" aria-hidden="true">
+    <strong>Camino de Santiago</strong>
+    <span>Spain · Sisterhood · Transformation</span>
+  </div>
+
+  <a class="scroll-cue" href="#about" aria-label="Scroll to learn more">
+    <span></span>
+  </a>
+</section>
+
+<style>
+  .hero {
+    min-height: 760px;
+    height: 100svh;
+    position: relative;
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+  }
+
+  .hero-photo,
+  .hero-shade {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-photo {
+    background: url('/assets/images/hero-camino.jpg') center/cover no-repeat;
+    transform: scale(1.015);
+    animation: hero-in 1.4s ease both;
+  }
+
+  .hero-shade {
+    background: linear-gradient(90deg, rgba(29, 5, 43, 0.94) 0%, rgba(66, 13, 88, 0.78) 47%, rgba(38, 10, 64, 0.18) 100%),
+      linear-gradient(0deg, rgba(22, 4, 35, 0.42), transparent 50%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    margin-top: 70px;
+  }
+
+  .hero h1 {
+    max-width: 850px;
+    margin-bottom: 0;
+    font-size: clamp(54px, 7.1vw, 100px);
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+  }
+
+  .hero-copy {
+    max-width: 650px;
+    margin: 30px 0 0;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 38px;
+  }
+
+  .hero-note {
+    position: absolute;
+    z-index: 2;
+    right: max(24px, calc((100vw - var(--max)) / 2));
+    bottom: 36px;
+    display: grid;
+    text-align: right;
+    gap: 4px;
+  }
+
+  .hero-note strong {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-note span {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.62);
+  }
+
+  .scroll-cue {
+    position: absolute;
+    z-index: 3;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 20px;
+  }
+
+  .scroll-cue span {
+    position: absolute;
+    top: 10px;
+    left: calc(50% - 2px);
+    width: 4px;
+    height: 8px;
+    border-radius: 3px;
+    background: white;
+    animation: scroll-cue 1.8s infinite;
+  }
+
+  @keyframes hero-in {
+    from {
+      transform: scale(1.08);
+      opacity: 0.55;
+    }
+    to {
+      transform: scale(1.015);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scroll-cue {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    30% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .hero {
+      min-height: 720px;
+    }
+
+    .hero-content {
+      margin-top: 60px;
+    }
+
+    .hero h1 {
+      font-size: clamp(47px, 15vw, 68px);
+    }
+
+    .hero-copy {
+      font-size: 18px;
+    }
+
+    .hero-photo {
+      background-position: 58% center;
+    }
+
+    .hero-shade {
+      background: linear-gradient(90deg, rgba(30, 6, 46, 0.95), rgba(50, 10, 72, 0.65));
+    }
+
+    .hero-note,
+    .scroll-cue {
+      display: none;
+    }
+  }
+</style>

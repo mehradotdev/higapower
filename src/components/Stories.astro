@@ -1,0 +1,42 @@
+---
+import { testimonials } from '../data/content';
+import StoryCard from './StoryCard.astro';
+---
+
+<section class="stories section" id="stories">
+  <div class="shell">
+    <div class="section-title-row reveal">
+      <div>
+        <p class="kicker">In their own words</p>
+        <h2>Stories from<br /><span>the Camino.</span></h2>
+      </div>
+      <p>Every journey is different. Every courageous step deserves to be heard.</p>
+    </div>
+
+    <div class="story-track" aria-label="Testimonials">
+      {testimonials.map((story) => (
+        <StoryCard story={story} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .story-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(310px, 1fr);
+    gap: 20px;
+    overflow-x: auto;
+    padding: 4px 2px 20px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-pink) rgba(42, 9, 63, 0.08);
+  }
+
+  @media (max-width: 760px) {
+    .story-track {
+      grid-auto-columns: 88%;
+    }
+  }
+</style>

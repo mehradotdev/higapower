@@ -1,0 +1,136 @@
+---
+import { journeySteps } from '../data/content';
+---
+
+<section class="journey section-dark" id="journey">
+  <div class="shell journey-grid">
+    <div class="journey-image reveal">
+      <img
+        src="/assets/images/journey-camino.jpg"
+        alt="Pilgrims walking beneath a blue sky"
+        width="1076"
+        height="1077"
+        loading="lazy"
+      />
+      <span class="image-label">Your story belongs on the path</span>
+    </div>
+    <div class="journey-copy reveal">
+      <p class="kicker kicker-pink">Reach out</p>
+      <h2>Start your<br /><span>journey today.</span></h2>
+      <p class="lead">Ready to embark on a journey of self-discovery, courage and empowerment?</p>
+      
+      <ol class="steps">
+        {journeySteps.map((item) => (
+          <li>
+            <span>{item.step}</span>
+            <div>
+              <strong>{item.title}</strong>
+              <p>{item.description}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      
+      <a class="button button-primary" href="mailto:helendudleybda@gmail.com?subject=Higa%20Power%20Sponsorship%20Application">
+        Apply for sponsorship <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .journey-grid {
+    display: grid;
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: clamp(50px, 8vw, 110px);
+    align-items: center;
+  }
+
+  .journey-image {
+    position: relative;
+  }
+
+  .journey-image img {
+    width: 100%;
+    min-height: 690px;
+    object-fit: cover;
+    border-radius: 120px 4px 4px 4px;
+  }
+
+  .image-label {
+    position: absolute;
+    right: -22px;
+    bottom: 34px;
+    max-width: 160px;
+    padding: 18px;
+    border-radius: 16px;
+    color: var(--color-purple-deep);
+    background: var(--color-pink-soft);
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.35;
+    transform: rotate(-3deg);
+  }
+
+  .journey-copy > .lead {
+    color: rgba(255, 255, 255, 0.76);
+  }
+
+  .steps {
+    margin: 36px 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .steps li {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    gap: 16px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .steps li > span {
+    color: var(--color-pink);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+  }
+
+  .steps strong {
+    font-family: var(--font-display);
+    font-size: 18px;
+  }
+
+  .steps p {
+    margin: 7px 0 0;
+    color: rgba(255, 255, 255, 0.57);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 960px) {
+    .journey-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .journey-image {
+      max-width: 720px;
+    }
+
+    .journey-image img {
+      min-height: 560px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .journey-image img {
+      min-height: 500px;
+      border-radius: 80px 4px 4px;
+    }
+
+    .image-label {
+      right: -6px;
+    }
+  }
+</style>

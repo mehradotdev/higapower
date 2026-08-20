@@ -1,0 +1,35 @@
+---
+import { events } from '../data/content';
+import EventCard from './EventCard.astro';
+---
+
+<section class="events section" id="events">
+  <div class="shell">
+    <div class="section-title-row reveal">
+      <div>
+        <p class="kicker">Miles already walked</p>
+        <h2>Challenges with<br /><span>real impact.</span></h2>
+      </div>
+      <p>Community, courage and a shared destination turn every challenge into meaningful support.</p>
+    </div>
+    <div class="event-grid">
+      {events.map((event) => (
+        <EventCard event={event} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .event-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 960px) {
+    .event-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

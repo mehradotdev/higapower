@@ -1,0 +1,129 @@
+---
+---
+
+<section class="social section">
+  <div class="shell social-grid">
+    <div class="social-copy reveal">
+      <p class="kicker">Follow the journey</p>
+      <h2>More stories.<br />More <span>brave steps.</span></h2>
+      <p>
+        Follow <a href="https://www.instagram.com/higapowers/" target="_blank" rel="noreferrer">@higapowers</a> for trail notes, community stories and more ways to get involved.
+      </p>
+      <div class="social-actions">
+        <a class="button button-dark" href="https://www.instagram.com/higapowers/" target="_blank" rel="noreferrer">
+          Instagram <span aria-hidden="true">↗</span>
+        </a>
+        <a class="button button-outline-dark" href="https://www.facebook.com/profile.php?id=61556930604257" target="_blank" rel="noreferrer">
+          Facebook <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+    
+    <div class="social-collage reveal">
+      <a href="https://www.instagram.com/p/C7TqekHstvb/" target="_blank" rel="noreferrer" aria-label="See this Higa Power post on Instagram">
+        <img src="/assets/images/gallery01/we-made-it-to-santiago.jpg" alt="Celebrating in Santiago" loading="lazy" />
+      </a>
+      <a href="https://www.instagram.com/reel/C7ReuqaNBBS/" target="_blank" rel="noreferrer" aria-label="See this Higa Power reel on Instagram">
+        <img src="/assets/images/gallery01/joy-along-the-way.jpg" alt="Pilgrims enjoying the journey" loading="lazy" />
+      </a>
+      <span class="social-badge">@higapowers</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .social-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: clamp(50px, 9vw, 130px);
+    align-items: center;
+  }
+
+  .social-copy > p:not(.kicker) {
+    color: var(--color-muted);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .social-copy > p a {
+    color: var(--color-purple);
+    font-weight: 800;
+  }
+
+  .social-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 38px;
+  }
+
+  .social-collage {
+    position: relative;
+    min-height: 570px;
+  }
+
+  .social-collage a {
+    position: absolute;
+    width: 56%;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 25px 70px rgba(42, 9, 63, 0.18);
+    transition: transform 0.3s ease;
+  }
+
+  .social-collage a:first-child {
+    top: 0;
+    left: 0;
+    transform: rotate(-4deg);
+  }
+
+  .social-collage a:first-child:hover {
+    transform: rotate(-2deg) scale(1.02);
+  }
+
+  .social-collage a:nth-child(2) {
+    right: 0;
+    bottom: 0;
+    transform: rotate(5deg);
+  }
+
+  .social-collage a:nth-child(2):hover {
+    transform: rotate(3deg) scale(1.02);
+  }
+
+  .social-collage img {
+    width: 100%;
+    aspect-ratio: 0.82;
+    object-fit: cover;
+  }
+
+  .social-badge {
+    position: absolute;
+    z-index: 3;
+    top: 45%;
+    left: 43%;
+    padding: 14px 20px;
+    border-radius: 999px;
+    color: white;
+    background: linear-gradient(135deg, var(--color-pink), var(--color-purple));
+    font-weight: 800;
+    transform: rotate(-2deg);
+    box-shadow: 0 12px 35px rgba(42, 9, 63, 0.25);
+  }
+
+  @media (max-width: 960px) {
+    .social-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .social-collage {
+      width: min(100%, 700px);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .social-collage {
+      min-height: 460px;
+    }
+  }
+</style>

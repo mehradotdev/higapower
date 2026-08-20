@@ -1,0 +1,122 @@
+---
+---
+
+<section class="founder section">
+  <div class="shell founder-grid">
+    <div class="founder-copy reveal">
+      <p class="kicker">Meet the founder</p>
+      <h2>Ellie, the heart<br />behind <span>Higa Power.</span></h2>
+      <p class="lead">
+        “I started Higa Power to help women overcome the financial and personal barriers that stand between them and a transformative Camino.”
+      </p>
+      <p>
+        I believe in the power of community, resilience and the magic of the Camino. Let’s make dreams come true together.
+      </p>
+      <div class="signature">
+        Ellie <span>Founder, Higa Power</span>
+      </div>
+    </div>
+    
+    <div class="founder-image reveal">
+      <img
+        src="/assets/images/founder-ellie.jpg"
+        alt="Ellie, founder of Higa Power"
+        width="1036"
+        height="1036"
+        loading="lazy"
+      />
+      <div class="founder-mark">
+        <img src="/assets/images/higa-power-logo.jpg" alt="" width="180" height="180" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.86fr;
+    gap: clamp(50px, 9vw, 130px);
+    align-items: center;
+  }
+
+  .founder-copy .lead {
+    color: var(--color-ink);
+  }
+
+  .founder-copy > p:not(.lead) {
+    color: var(--color-muted);
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .signature {
+    margin-top: 36px;
+    font-family: var(--font-display);
+    color: var(--color-purple);
+    font-size: 31px;
+    font-weight: 800;
+    font-style: italic;
+  }
+
+  .signature span {
+    display: block;
+    margin-top: 5px;
+    color: var(--color-muted);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .founder-image {
+    position: relative;
+  }
+
+  .founder-image > img {
+    width: 100%;
+    aspect-ratio: 0.9;
+    object-fit: cover;
+    border-radius: 4px 4px 120px 4px;
+  }
+
+  .founder-mark {
+    position: absolute;
+    left: -38px;
+    bottom: -38px;
+    padding: 14px;
+    border-radius: 50%;
+    background: var(--color-cream);
+  }
+
+  .founder-mark img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 960px) {
+    .founder-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .founder-image {
+      max-width: 660px;
+      margin-left: auto;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .founder-mark {
+      left: -10px;
+      bottom: -28px;
+    }
+
+    .founder-mark img {
+      width: 76px;
+      height: 76px;
+    }
+  }
+</style>

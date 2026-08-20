@@ -1,0 +1,119 @@
+---
+---
+
+<section class="experience section-dark">
+  <div class="shell experience-grid">
+    <figure class="experience-image reveal">
+      <img
+        src="/assets/images/experience-santiago.jpg"
+        alt="Women celebrating in front of Santiago Cathedral"
+        width="2316"
+        height="1308"
+        loading="lazy"
+      />
+      <figcaption>Arriving in Santiago</figcaption>
+    </figure>
+    <div class="experience-copy reveal">
+      <p class="kicker kicker-pink">The Higa Power experience</p>
+      <h2>Walking inward,<br />together.</h2>
+      <p>
+        Our female-led, long-distance walks foster an inward journey. The Camino encourages women to tap into their inner strength, feel more confident and rediscover what they are capable of.
+      </p>
+      <p>
+        Our coaching doesn’t end when the Camino finishes. We continue the dialogue so each woman can carry the journey’s positive change back into everyday life.
+      </p>
+      <div class="experience-stat">
+        <strong>800+</strong>
+        <span>kilometres of possibility on the Camino Francés</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .experience-grid {
+    display: grid;
+    grid-template-columns: 1.12fr 0.88fr;
+    gap: clamp(44px, 8vw, 110px);
+    align-items: center;
+  }
+
+  .experience-image {
+    position: relative;
+    margin: 0;
+  }
+
+  .experience-image::before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    inset: -14px auto auto -14px;
+    width: 90px;
+    height: 90px;
+    border-top: 2px solid var(--color-pink);
+    border-left: 2px solid var(--color-pink);
+  }
+
+  .experience-image img {
+    min-height: 550px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 4px 80px 4px 4px;
+  }
+
+  .experience-image figcaption {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    padding: 9px 13px;
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(24, 5, 31, 0.72);
+    backdrop-filter: blur(8px);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .experience-copy > p:not(.kicker) {
+    color: rgba(255, 255, 255, 0.66);
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .experience-stat {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 36px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .experience-stat strong {
+    font-family: var(--font-display);
+    color: var(--color-pink);
+    font-size: 48px;
+    letter-spacing: -0.05em;
+  }
+
+  .experience-stat span {
+    max-width: 220px;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 960px) {
+    .experience-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .experience-image img {
+      min-height: 430px;
+      border-radius: 4px 54px 4px 4px;
+    }
+  }
+</style>
