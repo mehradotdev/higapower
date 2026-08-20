@@ -1,0 +1,242 @@
+---
+---
+
+<section class="about-preview section" id="mission">
+  <div class="shell">
+    <div class="about-preview-grid">
+      <div class="about-preview-copy reveal">
+        <p class="kicker">Our mission</p>
+        <h2>A historic path.<br /><span>A new beginning.</span></h2>
+        <p class="lead">
+          At Higa Power, we believe in the life-changing impact of the Camino de Santiago for women seeking courage, clarity, and renewal.
+        </p>
+        <p class="mission-desc">
+          We sponsor deserving women to embark on this historic pilgrimage, providing full resources, logistics, and ongoing mentorship so each pilgrim can focus entirely on self-discovery and personal transformation.
+        </p>
+
+        <div class="mission-highlights">
+          <div class="highlight-item">
+            <span class="highlight-icon" aria-hidden="true">🥾</span>
+            <div class="highlight-text">
+              <strong>Inward Journey</strong>
+              <span>800+ km of reflection & resilience</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-icon" aria-hidden="true">💫</span>
+            <div class="highlight-text">
+              <strong>Full Sponsorship</strong>
+              <span>Accommodations and logistics covered</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-icon" aria-hidden="true">👭</span>
+            <div class="highlight-text">
+              <strong>Sisterhood & Care</strong>
+              <span>Guided mentorship from founder Ellie</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-preview-actions">
+          <a class="button button-dark" href="/about">
+            Our story & founder <span aria-hidden="true">→</span>
+          </a>
+          <a class="button button-outline-dark" href="/journey">
+            How sponsorship works <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="about-preview-image reveal">
+        <div class="image-wrapper">
+          <img
+            src="/assets/images/camino-gateway.jpg"
+            alt="The gateway on the Camino Francés"
+            width="1200"
+            height="1600"
+            loading="lazy"
+          />
+          <div class="image-caption">
+            <span class="caption-dot" aria-hidden="true"></span>
+            <span>The gateway on the Camino Francés</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-preview {
+    position: relative;
+    background: var(--color-cream);
+  }
+
+  .about-preview-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(48px, 7vw, 110px);
+    align-items: center;
+  }
+
+  .about-preview-copy h2 {
+    margin-bottom: 20px;
+  }
+
+  .mission-desc {
+    color: var(--color-muted);
+    font-size: 17px;
+    line-height: 1.8;
+    margin-top: 16px;
+    margin-bottom: 28px;
+  }
+
+  .mission-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 34px;
+  }
+
+  .highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--color-line);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .highlight-item:hover {
+    background: white;
+    transform: translateX(4px);
+  }
+
+  .highlight-icon {
+    font-size: 22px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #f3e7fa;
+    flex-shrink: 0;
+  }
+
+  .highlight-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .highlight-text strong {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+
+  .highlight-text span {
+    font-size: 14px;
+    color: var(--color-muted);
+    line-height: 1.4;
+  }
+
+  .about-preview-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* Image Column */
+  .about-preview-image {
+    position: relative;
+  }
+
+  .image-wrapper {
+    position: relative;
+    display: block;
+  }
+
+  .image-wrapper::before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    inset: -14px auto auto -14px;
+    width: 80px;
+    height: 80px;
+    border-top: 3px solid var(--color-pink);
+    border-left: 3px solid var(--color-pink);
+    border-top-left-radius: 4px;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    max-height: 590px;
+    object-fit: cover;
+    border-radius: 4px 90px 4px 4px;
+    box-shadow: 0 24px 60px rgba(42, 9, 63, 0.14);
+    display: block;
+  }
+
+  .image-caption {
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    color: white;
+    background: rgba(24, 5, 31, 0.82);
+    backdrop-filter: blur(12px);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+  }
+
+  .caption-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-pink);
+    box-shadow: 0 0 10px var(--color-pink);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 960px) {
+    .about-preview-grid {
+      grid-template-columns: 1fr;
+      gap: 44px;
+    }
+
+    .about-preview-image {
+      max-width: 560px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .image-wrapper img {
+      max-height: 440px;
+      border-radius: 4px 60px 4px 4px;
+    }
+
+    .image-caption {
+      font-size: 12px;
+      padding: 8px 14px;
+      bottom: 14px;
+      left: 14px;
+    }
+
+    .highlight-item {
+      padding: 10px 14px;
+    }
+  }
+</style>

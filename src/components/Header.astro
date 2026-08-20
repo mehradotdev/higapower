@@ -1,9 +1,23 @@
 ---
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const navItems = [
+  { href: '/about', label: 'About' },
+  { href: '/stories', label: 'Stories' },
+  { href: '/events', label: 'Events' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/journey', label: 'Join us' },
+];
+
+const isCurrent = (href: string) => {
+  if (href === '/') return pathname === '/';
+  return pathname === href || pathname.startsWith(`${href}/`);
+};
 ---
 
 <header class="site-header" data-header>
-  <a class="brand" href="#home" aria-label="Higa Power home">
-    <img src="/assets/images/higa-power-logo.jpg" alt="" width="180" height="180" />
+  <a class="brand" href="/" aria-label="Higa Power home">
+    <img src="/assets/images/higa-power-logo.jpg" alt="Higa Power logo" width="180" height="180" />
     <span>Higa Power</span>
   </a>
   <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu-toggle>
@@ -12,12 +26,13 @@
     <span></span>
   </button>
   <nav id="primary-nav" aria-label="Primary navigation" data-nav>
-    <a href="#about">About</a>
-    <a href="#stories">Stories</a>
-    <a href="#events">Events</a>
-    <a href="#journey">Join us</a>
-    <a href="#gallery">Gallery</a>
-    <a class="nav-cta" href="#support">Support us</a>
+    <a href="/" class:list={[{ 'is-active': pathname === '/' }]}>Home</a>
+    {navItems.map((item) => (
+      <a href={item.href} class:list={[{ 'is-active': isCurrent(item.href) }]}>
+        {item.label}
+      </a>
+    ))}
+    <a class="nav-cta" href="/journey">Support us</a>
   </nav>
 </header>
 
@@ -83,14 +98,31 @@
   }
 
   nav a:not(.nav-cta) {
+    position: relative;
     opacity: 0.86;
     transition: opacity 0.2s, color 0.2s;
   }
 
-  nav a:hover,
-  nav a:focus-visible {
+  nav a:not(.nav-cta):hover,
+  nav a:not(.nav-cta):focus-visible {
     opacity: 1;
     color: var(--color-pink-soft);
+  }
+
+  nav a.is-active:not(.nav-cta) {
+    opacity: 1;
+    color: var(--color-pink-soft);
+  }
+
+  nav a.is-active:not(.nav-cta)::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-pink);
+    border-radius: 2px;
   }
 
   .nav-cta {
@@ -187,6 +219,10 @@
     nav a {
       font-family: var(--font-display);
       font-size: 28px;
+    }
+
+    nav a.is-active:not(.nav-cta)::after {
+      bottom: -4px;
     }
 
     nav .nav-cta {

@@ -1,0 +1,318 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import PageHero from '../components/PageHero.astro';
+import Lightbox from '../components/Lightbox.astro';
+import { gallery } from '../data/content';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Trail Gallery — Photos & Videos from the Camino | Higa Power"
+  description="Explore moments, landscapes, milestones, and celebrations captured along the Camino de Santiago with Higa Power pilgrims."
+>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <Header />
+
+  <main id="main">
+    <PageHero
+      kicker="Trail Gallery"
+      title="Moments from"
+      titleHighlight="the Camino."
+      lead="A visual chronicle of early morning departures, mountain passes, quiet reflections, and joyful arrivals in Santiago de Compostela."
+      bgImage="/assets/images/camino-gateway.jpg"
+    />
+
+    <section class="gallery-page section-dark">
+      <div class="shell">
+        <div class="gallery-header reveal">
+          <div class="gallery-count">
+            <strong>{gallery.length}</strong>
+            <span>Moments captured along the way</span>
+          </div>
+          <p class="gallery-note">
+            Click any photo, GIF, or video to view in full resolution.
+          </p>
+        </div>
+
+        <div class="gallery-grid" data-gallery>
+          {gallery.map((photo, index) => (
+            <button
+              class="gallery-item reveal"
+              type="button"
+              data-index={index}
+              data-type={photo.type || 'image'}
+              data-full={photo.full}
+              data-video-src={photo.videoSrc || ''}
+              data-alt={photo.alt}
+              aria-label={`Open ${photo.type === 'video' ? 'video' : 'photo'}: ${photo.alt}`}
+            >
+              <img src={photo.thumb} alt={photo.alt} loading="lazy" />
+              
+              {photo.type === 'video' && (
+                <div class="media-badge video-badge" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                  <span>Video</span>
+                </div>
+              )}
+
+              {photo.type === 'gif' && (
+                <div class="media-badge gif-badge" aria-hidden="true">
+                  <span>GIF</span>
+                </div>
+              )}
+
+              <span class="hover-label" aria-hidden="true">
+                {photo.type === 'video' ? 'Play Video' : 'View'}
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery CTA -->
+    <section class="gallery-cta section">
+      <div class="shell">
+        <div class="gallery-cta-card reveal">
+          <div>
+            <p class="kicker kicker-pink">Experience it yourself</p>
+            <h2>Your own Camino memory is <span>waiting.</span></h2>
+            <p>
+              Step out of routine and onto the path of self-discovery. We provide full sponsorship and support to make it possible.
+            </p>
+          </div>
+          <div>
+            <a class="button button-primary" href="/journey">
+              Apply for sponsorship <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <Lightbox />
+
+  <script>
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+  </script>
+</BaseLayout>
+
+<style>
+  .gallery-page {
+    background: var(--color-purple-black);
+    color: white;
+  }
+
+  .gallery-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 48px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .gallery-count {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .gallery-count strong {
+    font-family: var(--font-display);
+    font-size: 36px;
+    color: var(--color-pink);
+    line-height: 1;
+  }
+
+  .gallery-count span {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .gallery-note {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 230px;
+    gap: 14px;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    border: 0;
+    border-radius: 14px;
+    background: #32133d;
+    cursor: zoom-in;
+  }
+
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(8),
+  .gallery-item:nth-child(15),
+  .gallery-item:nth-child(22) {
+    grid-column: span 2;
+  }
+
+  .gallery-item:nth-child(5),
+  .gallery-item:nth-child(18) {
+    grid-row: span 2;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s;
+  }
+
+  .media-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    color: white;
+    background: rgba(24, 5, 31, 0.85);
+    backdrop-filter: blur(8px);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .video-badge {
+    background: linear-gradient(135deg, var(--color-pink), var(--color-purple));
+  }
+
+  .gif-badge {
+    background: rgba(24, 5, 31, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .hover-label {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    color: white;
+    background: rgba(24, 5, 31, 0.75);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.2s, transform 0.2s;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.05);
+    opacity: 0.88;
+  }
+
+  .gallery-item:hover .hover-label {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Gallery CTA */
+  .gallery-cta-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    padding: clamp(40px, 6vw, 64px);
+    border-radius: 32px;
+    border: 1px solid var(--color-line);
+    background: white;
+    box-shadow: 0 16px 60px rgba(42, 9, 63, 0.05);
+  }
+
+  .gallery-cta-card > div:first-child {
+    max-width: 600px;
+  }
+
+  .gallery-cta-card h2 {
+    margin-bottom: 16px;
+    font-size: clamp(32px, 4vw, 48px);
+  }
+
+  .gallery-cta-card p:not(.kicker) {
+    color: var(--color-muted);
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @media (max-width: 960px) {
+    .gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 200px;
+    }
+
+    .gallery-cta-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 32px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .gallery-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 170px;
+      gap: 8px;
+    }
+
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(8),
+    .gallery-item:nth-child(15),
+    .gallery-item:nth-child(22) {
+      grid-column: auto;
+    }
+
+    .gallery-item:nth-child(3n + 1) {
+      grid-column: span 2;
+    }
+  }
+</style>

@@ -5,17 +5,20 @@ const currentYear = new Date().getFullYear();
 <footer>
   <div class="shell footer-main">
     <div>
-      <img src="/assets/images/higa-power-logo.jpg" alt="Higa Power" width="180" height="180" loading="lazy" />
+      <a href="/" aria-label="Higa Power Home">
+        <img src="/assets/images/higa-power-logo.jpg" alt="Higa Power" width="180" height="180" loading="lazy" />
+      </a>
       <p>Inspiring and supporting women on a transformative journey along the Camino de Santiago.</p>
     </div>
     
     <div class="footer-links">
       <div>
         <strong>Explore</strong>
-        <a href="#about">About</a>
-        <a href="#stories">Stories</a>
-        <a href="#events">Events</a>
-        <a href="#gallery">Gallery</a>
+        <a href="/about">About Us</a>
+        <a href="/stories">Stories</a>
+        <a href="/events">Events</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/journey">Sponsorship</a>
       </div>
       <div>
         <strong>Connect</strong>
@@ -26,8 +29,9 @@ const currentYear = new Date().getFullYear();
     </div>
     
     <div class="footer-cta">
+      <strong>Get Involved</strong>
       <p>Ready to take the first step?</p>
-      <a class="button button-primary" href="mailto:helendudleybda@gmail.com?subject=Higa%20Power%20Sponsorship%20Application">
+      <a class="button button-primary" href="/journey">
         Apply for sponsorship <span aria-hidden="true">→</span>
       </a>
     </div>
@@ -97,7 +101,22 @@ const currentYear = new Date().getFullYear();
     color: white;
   }
 
+  .footer-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .footer-cta strong {
+    color: var(--color-pink);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
   .footer-cta p {
+    margin: 0;
     font-family: var(--font-display);
     font-size: 23px;
     font-weight: 700;

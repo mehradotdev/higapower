@@ -1,0 +1,128 @@
+---
+import { journeySteps } from '../data/content';
+---
+
+<section class="journey-teaser section-dark" id="sponsorship">
+  <div class="shell">
+    <div class="journey-teaser-head reveal">
+      <div>
+        <p class="kicker kicker-pink">Sponsorship program</p>
+        <h2>Three steps to your <span>Camino.</span></h2>
+      </div>
+      <p class="journey-teaser-intro">
+        We remove the financial and logistical barriers so you can focus on self-discovery and transformation.
+      </p>
+    </div>
+
+    <div class="steps-grid">
+      {journeySteps.map((item) => (
+        <div class="step-card reveal">
+          <div class="step-num">{item.step}</div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="journey-teaser-cta reveal">
+      <a class="button button-primary" href="/journey">
+        Apply for sponsorship <span aria-hidden="true">→</span>
+      </a>
+      <a class="button button-quiet" href="/journey">
+        Learn what's included & FAQs <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .journey-teaser {
+    background: var(--color-purple-black);
+    color: white;
+  }
+
+  .journey-teaser-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 56px;
+  }
+
+  .journey-teaser-head h2 {
+    margin-bottom: 0;
+  }
+
+  .journey-teaser-intro {
+    max-width: 380px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .step-card {
+    padding: 36px 30px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, background 0.2s;
+  }
+
+  .step-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--color-pink);
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+  }
+
+  .step-card h3 {
+    margin: 0 0 12px;
+    font-size: 22px;
+    color: white;
+    letter-spacing: -0.02em;
+  }
+
+  .step-card p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .journey-teaser-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  @media (max-width: 960px) {
+    .journey-teaser-head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

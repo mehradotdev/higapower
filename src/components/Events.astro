@@ -17,6 +17,12 @@ import EventCard from './EventCard.astro';
         <EventCard event={event} />
       ))}
     </div>
+
+    <div class="events-footer reveal">
+      <a class="text-link" href="/events">
+        View all challenges and impact <span aria-hidden="true">→</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -27,9 +33,19 @@ import EventCard from './EventCard.astro';
     gap: 24px;
   }
 
+  .events-footer {
+    margin-top: 36px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
   @media (max-width: 960px) {
     .event-grid {
       grid-template-columns: 1fr;
+    }
+
+    .events-footer {
+      justify-content: flex-start;
     }
   }
 </style>
