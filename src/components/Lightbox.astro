@@ -1,142 +1,48 @@
 ---
 ---
 
-<dialog class="lightbox" data-lightbox aria-label="Media lightbox">
-  <button type="button" class="lightbox-close" aria-label="Close media" data-lightbox-close>×</button>
-  <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous item" data-lightbox-prev>‹</button>
-  <button type="button" class="lightbox-nav lightbox-next" aria-label="Next item" data-lightbox-next>›</button>
+<dialog
+  class="w-[min(92vw,1100px)] max-h-[92vh] p-0 border-0 rounded-2xl text-white bg-[#110416] shadow-[0_24px_100px_rgba(0,0,0,0.5)] overflow-hidden backdrop:bg-[#0a020e]/88 backdrop:backdrop-blur-md"
+  data-lightbox
+  aria-label="Media lightbox"
+>
+  <button
+    type="button"
+    class="fixed z-10 top-5.5 right-5.5 w-11 h-11 border-0 rounded-full text-white bg-[#0a020e]/70 text-2xl sm:text-3xl cursor-pointer flex items-center justify-center hover:bg-pink hover:scale-105 transition-all duration-200"
+    aria-label="Close media"
+    data-lightbox-close
+  >
+    ×
+  </button>
+  <button
+    type="button"
+    class="fixed z-10 top-1/2 -translate-y-1/2 left-2.5 sm:left-5.5 w-10 sm:w-12 h-10 sm:h-12 border-0 rounded-full text-white bg-[#0a020e]/70 text-2xl sm:text-4xl leading-none cursor-pointer flex items-center justify-center hover:bg-pink hover:scale-105 transition-all duration-200 select-none"
+    aria-label="Previous item"
+    data-lightbox-prev
+  >
+    ‹
+  </button>
+  <button
+    type="button"
+    class="fixed z-10 top-1/2 -translate-y-1/2 right-2.5 sm:right-5.5 w-10 sm:w-12 h-10 sm:h-12 border-0 rounded-full text-white bg-[#0a020e]/70 text-2xl sm:text-4xl leading-none cursor-pointer flex items-center justify-center hover:bg-pink hover:scale-105 transition-all duration-200 select-none"
+    aria-label="Next item"
+    data-lightbox-next
+  >
+    ›
+  </button>
   
-  <div class="lightbox-content">
-    <img src="" alt="" data-lightbox-image class="lightbox-media" />
+  <div class="flex flex-col items-center justify-center p-3">
+    <img src="" alt="" data-lightbox-image class="w-full max-h-[78vh] object-contain rounded-lg" />
     <video
       data-lightbox-video
-      class="lightbox-media lightbox-video"
+      class="w-full max-h-[78vh] object-contain rounded-lg hidden bg-black"
       controls
       playsinline
       preload="metadata"
     ></video>
-    <p data-lightbox-caption></p>
+    <p class="m-0 pt-3.5 px-5 pb-1.5 text-center text-white/85 text-[15px]" data-lightbox-caption></p>
   </div>
 </dialog>
-
-<style>
-  .lightbox {
-    width: min(92vw, 1100px);
-    max-height: 92vh;
-    padding: 0;
-    border: 0;
-    border-radius: 16px;
-    color: white;
-    background: #110416;
-    box-shadow: 0 24px 100px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-  }
-
-  .lightbox::backdrop {
-    background: rgba(10, 2, 14, 0.88);
-    backdrop-filter: blur(8px);
-  }
-
-  .lightbox-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-  }
-
-  .lightbox-media {
-    width: 100%;
-    max-height: 78vh;
-    object-fit: contain;
-    border-radius: 8px;
-  }
-
-  .lightbox-video {
-    display: none;
-    background: black;
-  }
-
-  .lightbox p {
-    margin: 0;
-    padding: 14px 20px 6px;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 15px;
-  }
-
-  .lightbox-close {
-    position: fixed;
-    z-index: 10;
-    top: 22px;
-    right: 22px;
-    width: 45px;
-    height: 45px;
-    border: 0;
-    border-radius: 50%;
-    color: white;
-    background: rgba(10, 2, 14, 0.7);
-    font-size: 29px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s, transform 0.2s;
-  }
-
-  .lightbox-close:hover {
-    background: var(--color-pink);
-    transform: scale(1.05);
-  }
-
-  .lightbox-nav {
-    position: fixed;
-    z-index: 10;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 48px;
-    height: 48px;
-    border: 0;
-    border-radius: 50%;
-    color: white;
-    background: rgba(10, 2, 14, 0.7);
-    font-size: 36px;
-    line-height: 1;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s, transform 0.2s;
-    user-select: none;
-  }
-
-  .lightbox-prev {
-    left: 22px;
-  }
-
-  .lightbox-next {
-    right: 22px;
-  }
-
-  .lightbox-nav:hover {
-    background: var(--color-pink);
-    transform: translateY(-50%) scale(1.05);
-  }
-
-  @media (max-width: 760px) {
-    .lightbox-nav {
-      width: 40px;
-      height: 40px;
-      font-size: 28px;
-    }
-    .lightbox-prev {
-      left: 10px;
-    }
-    .lightbox-next {
-      right: 10px;
-    }
-  }
-</style>
 
 <script>
   const lightbox = document.querySelector('[data-lightbox]');

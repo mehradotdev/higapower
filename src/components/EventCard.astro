@@ -8,16 +8,36 @@ interface Props {
 const { event } = Astro.props;
 ---
 
-<article class:list={['event-card', 'reveal', { 'event-main': event.isFeatured }]}>
-  <img src={event.image} alt={event.title} width="720" height="405" loading="lazy" />
-  <div class="event-body">
-    <div class="event-meta">
-      <span>{event.date}</span>
-      <span>{event.location}</span>
-      <span class="status">{event.status}</span>
+<article class="overflow-hidden border border-line rounded-[26px] bg-white block md:grid md:grid-cols-[0.9fr_1.1fr] lg:block reveal">
+  <img
+    src={event.image}
+    alt={event.title}
+    width="720"
+    height="405"
+    loading="lazy"
+    class:list={[
+      'w-full object-cover h-[250px] md:h-full md:min-h-[350px] lg:min-h-0',
+      event.isFeatured ? 'lg:h-[390px]' : 'lg:h-[310px]',
+    ]}
+  />
+  <div class="p-6 sm:p-7">
+    <div class="flex flex-wrap gap-2 mb-5">
+      <span class="px-2.5 py-1.5 rounded-full text-purple bg-[#f3e7fa] text-[11px] font-extrabold uppercase tracking-wider">
+        {event.date}
+      </span>
+      <span class="px-2.5 py-1.5 rounded-full text-purple bg-[#f3e7fa] text-[11px] font-extrabold uppercase tracking-wider">
+        {event.location}
+      </span>
+      <span class="px-2.5 py-1.5 rounded-full text-[#176c43] bg-[#e4f8ee] text-[11px] font-extrabold uppercase tracking-wider">
+        {event.status}
+      </span>
     </div>
-    <h3>{event.title}</h3>
-    <p>{event.description}</p>
+    <h3 class="font-display font-bold mb-3.5 text-[27px] leading-tight tracking-[-0.035em] text-ink">
+      {event.title}
+    </h3>
+    <p class="text-muted leading-[1.7] mb-4">
+      {event.description}
+    </p>
     {event.link && (
       <a class="text-link" href={event.link} target="_blank" rel="noreferrer">
         Visit the fundraiser <span aria-hidden="true">↗</span>
@@ -25,88 +45,3 @@ const { event } = Astro.props;
     )}
   </div>
 </article>
-
-<style>
-  .event-card {
-    overflow: hidden;
-    border: 1px solid var(--color-line);
-    border-radius: 26px;
-    background: white;
-  }
-
-  .event-card > img {
-    width: 100%;
-    height: 310px;
-    object-fit: cover;
-  }
-
-  .event-main > img {
-    height: 390px;
-  }
-
-  .event-body {
-    padding: 28px;
-  }
-
-  .event-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-
-  .event-meta span {
-    padding: 7px 10px;
-    border-radius: 999px;
-    color: var(--color-purple);
-    background: #f3e7fa;
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .event-meta .status {
-    color: #176c43;
-    background: #e4f8ee;
-  }
-
-  .event-card h3 {
-    margin-bottom: 13px;
-    font-size: 27px;
-    line-height: 1.2;
-    letter-spacing: -0.035em;
-  }
-
-  .event-card p {
-    color: var(--color-muted);
-    line-height: 1.7;
-  }
-
-  @media (max-width: 960px) {
-    .event-card,
-    .event-main {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-    }
-
-    .event-card > img,
-    .event-main > img {
-      height: 100%;
-      min-height: 350px;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .event-card,
-    .event-main {
-      display: block;
-    }
-
-    .event-card > img,
-    .event-main > img {
-      min-height: 0;
-      height: 250px;
-    }
-  }
-</style>

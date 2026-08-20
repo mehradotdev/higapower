@@ -2,30 +2,33 @@
 import { journeySteps } from '../data/content';
 ---
 
-<section class="journey section-dark" id="journey">
-  <div class="shell journey-grid">
-    <div class="journey-image reveal">
+<section class="section-dark" id="journey">
+  <div class="shell grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-12 lg:gap-24 items-center">
+    <div class="relative max-w-[720px] lg:max-w-none reveal">
       <img
         src="/assets/images/journey-camino.jpg"
         alt="Pilgrims walking beneath a blue sky"
         width="1076"
         height="1077"
         loading="lazy"
+        class="w-full min-h-[500px] sm:min-h-[560px] lg:min-h-[690px] object-cover rounded-[80px_4px_4px_4px] sm:rounded-[120px_4px_4px_4px]"
       />
-      <span class="image-label">Your story belongs on the path</span>
+      <span class="absolute -right-1.5 sm:-right-5.5 bottom-8.5 max-w-[160px] p-4.5 rounded-2xl text-purple-deep bg-pink-soft font-display text-sm font-extrabold leading-snug -rotate-3 shadow-lg">
+        Your story belongs on the path
+      </span>
     </div>
-    <div class="journey-copy reveal">
+    <div class="reveal">
       <p class="kicker kicker-pink">Reach out</p>
       <h2>Start your<br /><span>journey today.</span></h2>
-      <p class="lead">Ready to embark on a journey of self-discovery, courage and empowerment?</p>
+      <p class="lead text-white/75">Ready to embark on a journey of self-discovery, courage and empowerment?</p>
       
-      <ol class="steps">
+      <ol class="my-9 p-0 list-none">
         {journeySteps.map((item) => (
-          <li>
-            <span>{item.step}</span>
+          <li class="grid grid-cols-[45px_1fr] gap-4 py-5 border-t border-white/14">
+            <span class="text-pink text-xs font-extrabold tracking-widest">{item.step}</span>
             <div>
-              <strong>{item.title}</strong>
-              <p>{item.description}</p>
+              <strong class="font-display text-lg text-white font-bold">{item.title}</strong>
+              <p class="mt-1.5 mb-0 text-white/60 leading-relaxed text-sm sm:text-base">{item.description}</p>
             </div>
           </li>
         ))}
@@ -37,100 +40,3 @@ import { journeySteps } from '../data/content';
     </div>
   </div>
 </section>
-
-<style>
-  .journey-grid {
-    display: grid;
-    grid-template-columns: 0.92fr 1.08fr;
-    gap: clamp(50px, 8vw, 110px);
-    align-items: center;
-  }
-
-  .journey-image {
-    position: relative;
-  }
-
-  .journey-image img {
-    width: 100%;
-    min-height: 690px;
-    object-fit: cover;
-    border-radius: 120px 4px 4px 4px;
-  }
-
-  .image-label {
-    position: absolute;
-    right: -22px;
-    bottom: 34px;
-    max-width: 160px;
-    padding: 18px;
-    border-radius: 16px;
-    color: var(--color-purple-deep);
-    background: var(--color-pink-soft);
-    font-family: var(--font-display);
-    font-size: 14px;
-    font-weight: 800;
-    line-height: 1.35;
-    transform: rotate(-3deg);
-  }
-
-  .journey-copy > .lead {
-    color: rgba(255, 255, 255, 0.76);
-  }
-
-  .steps {
-    margin: 36px 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .steps li {
-    display: grid;
-    grid-template-columns: 45px 1fr;
-    gap: 16px;
-    padding: 20px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.14);
-  }
-
-  .steps li > span {
-    color: var(--color-pink);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-  }
-
-  .steps strong {
-    font-family: var(--font-display);
-    font-size: 18px;
-  }
-
-  .steps p {
-    margin: 7px 0 0;
-    color: rgba(255, 255, 255, 0.57);
-    line-height: 1.6;
-  }
-
-  @media (max-width: 960px) {
-    .journey-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .journey-image {
-      max-width: 720px;
-    }
-
-    .journey-image img {
-      min-height: 560px;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .journey-image img {
-      min-height: 500px;
-      border-radius: 80px 4px 4px;
-    }
-
-    .image-label {
-      right: -6px;
-    }
-  }
-</style>

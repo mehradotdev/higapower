@@ -1,14 +1,22 @@
 ---
 ---
 
-<section class="impact" id="support">
-  <div class="impact-photo" role="img" aria-label="Two pilgrims walking across the countryside"></div>
-  <div class="impact-shade"></div>
+<section class="relative min-h-[660px] sm:min-h-[690px] grid items-center overflow-hidden text-white" id="support">
+  <div
+    class="absolute inset-0 bg-cover bg-no-repeat bg-[center_48%]"
+    style="background-image: url('/assets/images/camino-frances.jpg')"
+    role="img"
+    aria-label="Two pilgrims walking across the countryside"
+  ></div>
+  <div
+    class="absolute inset-0"
+    style="background: linear-gradient(90deg, rgba(26, 4, 35, 0.92), rgba(50, 10, 71, 0.72) 52%, rgba(35, 6, 49, 0.1));"
+  ></div>
   
-  <div class="shell impact-content reveal">
+  <div class="shell relative z-2 reveal">
     <p class="kicker kicker-pink">Make a difference</p>
-    <h2>Help another woman<br />take her <span>first step.</span></h2>
-    <p>
+    <h2 class="max-w-[850px]">Help another woman<br />take her <span>first step.</span></h2>
+    <p class="max-w-[650px] mb-8 text-white/75 text-[18px] leading-[1.75]">
       Higa Power depends on private donations and community fundraising to make these transformative journeys accessible to women who need them most.
     </p>
     <a class="button button-primary" href="/events">
@@ -16,50 +24,3 @@
     </a>
   </div>
 </section>
-
-<style>
-  .impact {
-    min-height: 690px;
-    position: relative;
-    display: grid;
-    align-items: center;
-    overflow: hidden;
-    color: white;
-  }
-
-  .impact-photo,
-  .impact-shade {
-    position: absolute;
-    inset: 0;
-  }
-
-  .impact-photo {
-    background: url('/assets/images/camino-frances.jpg') center 48% / cover no-repeat;
-  }
-
-  .impact-shade {
-    background: linear-gradient(90deg, rgba(26, 4, 35, 0.92), rgba(50, 10, 71, 0.72) 52%, rgba(35, 6, 49, 0.1));
-  }
-
-  .impact-content {
-    position: relative;
-    z-index: 2;
-  }
-
-  .impact h2 {
-    max-width: 850px;
-  }
-
-  .impact-content > p:not(.kicker) {
-    max-width: 650px;
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 18px;
-    line-height: 1.75;
-  }
-
-  @media (max-width: 760px) {
-    .impact {
-      min-height: 660px;
-    }
-  }
-</style>

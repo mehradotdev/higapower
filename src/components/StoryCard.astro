@@ -8,86 +8,30 @@ interface Props {
 const { story } = Astro.props;
 ---
 
-<article class="story-card reveal">
-  <div class="story-person">
-    <img src={story.image} alt={story.name} width="240" height="240" loading="lazy" />
-    <div>
-      <strong>{story.name}</strong>
-      <span>Higa Power pilgrim</span>
+<article class="min-h-[410px] sm:min-h-[395px] flex flex-col p-6 sm:p-8 border border-line rounded-3xl bg-paper shadow-[0_14px_50px_rgba(42,9,63,0.04)] snap-start reveal">
+  <div class="flex items-center gap-3.5">
+    <img
+      src={story.image}
+      alt={story.name}
+      width="240"
+      height="240"
+      loading="lazy"
+      class="w-14 h-14 object-cover rounded-full"
+    />
+    <div class="grid gap-0.5">
+      <strong class="font-display text-ink font-bold">{story.name}</strong>
+      <span class="text-muted text-xs">Higa Power pilgrim</span>
     </div>
   </div>
-  <blockquote>“{story.quote}”</blockquote>
-  <a href={story.link} target="_blank" rel="noreferrer">
+  <blockquote class="flex-1 my-7 font-display text-lg leading-[1.62] text-ink">
+    “{story.quote}”
+  </blockquote>
+  <a
+    href={story.link}
+    target="_blank"
+    rel="noreferrer"
+    class="text-purple font-extrabold text-sm inline-flex items-center gap-1.5 hover:text-pink transition-colors"
+  >
     Read her story <span aria-hidden="true">↗</span>
   </a>
 </article>
-
-<style>
-  .story-card {
-    min-height: 395px;
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    border: 1px solid var(--color-line);
-    border-radius: 24px;
-    background: var(--color-paper);
-    box-shadow: 0 14px 50px rgba(42, 9, 63, 0.04);
-    scroll-snap-align: start;
-  }
-
-  .story-person {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .story-person img {
-    width: 58px;
-    height: 58px;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-
-  .story-person div {
-    display: grid;
-    gap: 3px;
-  }
-
-  .story-person strong {
-    font-family: var(--font-display);
-  }
-
-  .story-person span {
-    color: var(--color-muted);
-    font-size: 12px;
-  }
-
-  .story-card blockquote {
-    flex: 1;
-    margin: 28px 0;
-    font-family: var(--font-display);
-    font-size: 18px;
-    line-height: 1.62;
-  }
-
-  .story-card > a {
-    color: var(--color-purple);
-    font-weight: 800;
-    font-size: 14px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: color 0.2s;
-  }
-
-  .story-card > a:hover {
-    color: var(--color-pink);
-  }
-
-  @media (max-width: 760px) {
-    .story-card {
-      min-height: 410px;
-      padding: 25px;
-    }
-  }
-</style>

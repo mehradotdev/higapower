@@ -29,7 +29,7 @@ import Footer from '../components/Footer.astro';
     <Impact />
 
     <!-- How you can get involved -->
-    <section class="get-involved section">
+    <section class="section">
       <div class="shell">
         <div class="section-title-row reveal">
           <div>
@@ -39,36 +39,36 @@ import Footer from '../components/Footer.astro';
           <p>Whether by making a contribution, organizing a walk, or cheering on our pilgrims, your support matters.</p>
         </div>
 
-        <div class="involvement-grid">
-          <div class="involvement-card reveal">
-            <div class="card-icon" aria-hidden="true">💫</div>
-            <h3>Direct Donation</h3>
-            <p>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-7">
+          <div class="p-7 sm:p-9 rounded-3xl border border-line bg-white shadow-[0_14px_45px_rgba(42,9,63,0.04)] flex flex-col reveal">
+            <div class="text-4xl mb-5" aria-hidden="true">💫</div>
+            <h3 class="font-display font-bold mb-3.5 text-[22px] tracking-[-0.03em]">Direct Donation</h3>
+            <p class="text-muted leading-[1.7] mb-6 flex-1">
               Your gift directly covers pilgrim accommodations, travel logistics, gear, and ongoing empowerment coaching for sponsored women.
             </p>
-            <a class="text-link" href="mailto:helendudleybda@gmail.com?subject=Higa%20Power%20Donation%20Inquiry">
+            <a class="text-link inline-flex" href="mailto:helendudleybda@gmail.com?subject=Higa%20Power%20Donation%20Inquiry">
               Inquire about donating <span aria-hidden="true">↗</span>
             </a>
           </div>
 
-          <div class="involvement-card reveal">
-            <div class="card-icon" aria-hidden="true">🥾</div>
-            <h3>Take on a Challenge</h3>
-            <p>
+          <div class="p-7 sm:p-9 rounded-3xl border border-line bg-white shadow-[0_14px_45px_rgba(42,9,63,0.04)] flex flex-col reveal">
+            <div class="text-4xl mb-5" aria-hidden="true">🥾</div>
+            <h3 class="font-display font-bold mb-3.5 text-[22px] tracking-[-0.03em]">Take on a Challenge</h3>
+            <p class="text-muted leading-[1.7] mb-6 flex-1">
               Join our fundraising walks or dedicate your personal athletic challenge to Higa Power to raise funds and awareness.
             </p>
-            <a class="text-link" href="https://www.instagram.com/higapowers/" target="_blank" rel="noreferrer">
+            <a class="text-link inline-flex" href="https://www.instagram.com/higapowers/" target="_blank" rel="noreferrer">
               Connect on Instagram <span aria-hidden="true">↗</span>
             </a>
           </div>
 
-          <div class="involvement-card reveal">
-            <div class="card-icon" aria-hidden="true">🤝</div>
-            <h3>Corporate & Community Partner</h3>
-            <p>
+          <div class="p-7 sm:p-9 rounded-3xl border border-line bg-white shadow-[0_14px_45px_rgba(42,9,63,0.04)] flex flex-col reveal">
+            <div class="text-4xl mb-5" aria-hidden="true">🤝</div>
+            <h3 class="font-display font-bold mb-3.5 text-[22px] tracking-[-0.03em]">Corporate & Community Partner</h3>
+            <p class="text-muted leading-[1.7] mb-6 flex-1">
               Partner with Higa Power as a business or organization to co-sponsor a woman’s journey and champion female resilience.
             </p>
-            <a class="text-link" href="mailto:helendudleybda@gmail.com?subject=Higa%20Power%20Partnership">
+            <a class="text-link inline-flex" href="mailto:helendudleybda@gmail.com?subject=Higa%20Power%20Partnership">
               Partner with us <span aria-hidden="true">↗</span>
             </a>
           </div>
@@ -95,45 +95,3 @@ import Footer from '../components/Footer.astro';
     document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
   </script>
 </BaseLayout>
-
-<style>
-  .involvement-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-
-  .involvement-card {
-    padding: 36px 30px;
-    border-radius: 24px;
-    border: 1px solid var(--color-line);
-    background: white;
-    box-shadow: 0 14px 45px rgba(42, 9, 63, 0.04);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .card-icon {
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-
-  .involvement-card h3 {
-    margin-bottom: 14px;
-    font-size: 22px;
-    letter-spacing: -0.03em;
-  }
-
-  .involvement-card p {
-    color: var(--color-muted);
-    line-height: 1.7;
-    margin-bottom: 24px;
-    flex: 1;
-  }
-
-  @media (max-width: 960px) {
-    .involvement-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

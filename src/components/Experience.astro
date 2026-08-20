@@ -1,119 +1,34 @@
 ---
 ---
 
-<section class="experience section-dark">
-  <div class="shell experience-grid">
-    <figure class="experience-image reveal">
+<section class="section-dark" id="experience">
+  <div class="shell grid grid-cols-1 lg:grid-cols-[1.12fr_0.88fr] gap-11 lg:gap-24 items-center">
+    <figure class="relative m-0 before:content-[''] before:absolute before:z-2 before:-top-3.5 before:-left-3.5 before:w-22.5 before:h-22.5 before:border-t-2 before:border-l-2 before:border-pink reveal">
       <img
         src="/assets/images/experience-santiago.jpg"
         alt="Women celebrating in front of Santiago Cathedral"
         width="2316"
         height="1308"
         loading="lazy"
+        class="w-full min-h-[430px] sm:min-h-[550px] object-cover rounded-[4px_54px_4px_4px] sm:rounded-[4px_80px_4px_4px]"
       />
-      <figcaption>Arriving in Santiago</figcaption>
+      <figcaption class="absolute bottom-4.5 left-4.5 px-3 py-2 rounded-full text-white/80 bg-[#18051f]/72 backdrop-blur-md text-xs uppercase tracking-[0.12em] font-semibold">
+        Arriving in Santiago
+      </figcaption>
     </figure>
-    <div class="experience-copy reveal">
+    <div class="reveal">
       <p class="kicker kicker-pink">The Higa Power experience</p>
       <h2>Walking inward,<br />together.</h2>
-      <p>
+      <p class="text-white/65 text-[17px] leading-[1.8] mb-4">
         Our female-led, long-distance walks foster an inward journey. The Camino encourages women to tap into their inner strength, feel more confident and rediscover what they are capable of.
       </p>
-      <p>
+      <p class="text-white/65 text-[17px] leading-[1.8]">
         Our coaching doesn’t end when the Camino finishes. We continue the dialogue so each woman can carry the journey’s positive change back into everyday life.
       </p>
-      <div class="experience-stat">
-        <strong>800+</strong>
-        <span>kilometres of possibility on the Camino Francés</span>
+      <div class="flex items-center gap-4.5 mt-9 pt-7.5 border-t border-white/14">
+        <strong class="font-display text-pink text-5xl tracking-[-0.05em] font-bold">800+</strong>
+        <span class="max-w-[220px] text-white/65 text-[13px] leading-snug">kilometres of possibility on the Camino Francés</span>
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  .experience-grid {
-    display: grid;
-    grid-template-columns: 1.12fr 0.88fr;
-    gap: clamp(44px, 8vw, 110px);
-    align-items: center;
-  }
-
-  .experience-image {
-    position: relative;
-    margin: 0;
-  }
-
-  .experience-image::before {
-    content: '';
-    position: absolute;
-    z-index: 2;
-    inset: -14px auto auto -14px;
-    width: 90px;
-    height: 90px;
-    border-top: 2px solid var(--color-pink);
-    border-left: 2px solid var(--color-pink);
-  }
-
-  .experience-image img {
-    min-height: 550px;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 4px 80px 4px 4px;
-  }
-
-  .experience-image figcaption {
-    position: absolute;
-    bottom: 18px;
-    left: 18px;
-    padding: 9px 13px;
-    border-radius: 999px;
-    color: rgba(255, 255, 255, 0.8);
-    background: rgba(24, 5, 31, 0.72);
-    backdrop-filter: blur(8px);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-
-  .experience-copy > p:not(.kicker) {
-    color: rgba(255, 255, 255, 0.66);
-    font-size: 17px;
-    line-height: 1.8;
-  }
-
-  .experience-stat {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-top: 36px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.14);
-  }
-
-  .experience-stat strong {
-    font-family: var(--font-display);
-    color: var(--color-pink);
-    font-size: 48px;
-    letter-spacing: -0.05em;
-  }
-
-  .experience-stat span {
-    max-width: 220px;
-    color: rgba(255, 255, 255, 0.65);
-    font-size: 13px;
-    line-height: 1.5;
-  }
-
-  @media (max-width: 960px) {
-    .experience-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .experience-image img {
-      min-height: 430px;
-      border-radius: 4px 54px 4px 4px;
-    }
-  }
-</style>

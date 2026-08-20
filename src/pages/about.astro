@@ -32,17 +32,17 @@ import Footer from '../components/Footer.astro';
     <Founder />
     <HigaStory />
 
-    <section class="about-cta section">
+    <section class="section">
       <div class="shell">
-        <div class="about-cta-card reveal">
-          <div class="about-cta-text">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 lg:gap-12 p-8 sm:p-12 lg:p-16 rounded-[32px] border border-line bg-white shadow-[0_16px_60px_rgba(42,9,63,0.05)] reveal">
+          <div class="max-w-[600px]">
             <p class="kicker kicker-pink">Join our community</p>
-            <h2>Ready to be part of the <span>journey?</span></h2>
-            <p>
+            <h2 class="mb-4 text-[clamp(32px,4vw,48px)] leading-tight">Ready to be part of the <span>journey?</span></h2>
+            <p class="text-muted text-[17px] leading-[1.7] m-0">
               Whether you are looking to walk the Camino through our sponsorship program or support another woman taking her first brave step, you belong here.
             </p>
           </div>
-          <div class="about-cta-buttons">
+          <div class="flex flex-row flex-wrap lg:flex-col gap-4 shrink-0 w-full lg:w-auto">
             <a class="button button-primary" href="/journey">
               Apply for sponsorship <span aria-hidden="true">→</span>
             </a>
@@ -75,54 +75,3 @@ import Footer from '../components/Footer.astro';
     document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
   </script>
 </BaseLayout>
-
-<style>
-  .about-cta-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 48px;
-    padding: clamp(40px, 6vw, 64px);
-    border-radius: 32px;
-    border: 1px solid var(--color-line);
-    background: white;
-    box-shadow: 0 16px 60px rgba(42, 9, 63, 0.05);
-  }
-
-  .about-cta-text {
-    max-width: 600px;
-  }
-
-  .about-cta-text h2 {
-    margin-bottom: 16px;
-    font-size: clamp(32px, 4vw, 48px);
-  }
-
-  .about-cta-text p:not(.kicker) {
-    color: var(--color-muted);
-    font-size: 17px;
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  .about-cta-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    flex-shrink: 0;
-  }
-
-  @media (max-width: 960px) {
-    .about-cta-card {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 32px;
-    }
-
-    .about-cta-buttons {
-      flex-direction: row;
-      flex-wrap: wrap;
-      width: 100%;
-    }
-  }
-</style>

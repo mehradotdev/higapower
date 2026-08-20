@@ -3,7 +3,7 @@ import { events } from '../data/content';
 import EventCard from './EventCard.astro';
 ---
 
-<section class="events section" id="events">
+<section class="section" id="events">
   <div class="shell">
     <div class="section-title-row reveal">
       <div>
@@ -12,40 +12,16 @@ import EventCard from './EventCard.astro';
       </div>
       <p>Community, courage and a shared destination turn every challenge into meaningful support.</p>
     </div>
-    <div class="event-grid">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-6">
       {events.map((event) => (
         <EventCard event={event} />
       ))}
     </div>
 
-    <div class="events-footer reveal">
-      <a class="text-link" href="/events">
+    <div class="mt-9 flex justify-start lg:justify-end reveal">
+      <a class="text-link inline-flex" href="/events">
         View all challenges and impact <span aria-hidden="true">→</span>
       </a>
     </div>
   </div>
 </section>
-
-<style>
-  .event-grid {
-    display: grid;
-    grid-template-columns: 1.25fr 0.75fr;
-    gap: 24px;
-  }
-
-  .events-footer {
-    margin-top: 36px;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  @media (max-width: 960px) {
-    .event-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .events-footer {
-      justify-content: flex-start;
-    }
-  }
-</style>

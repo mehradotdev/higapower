@@ -1,44 +1,44 @@
 ---
 ---
 
-<section class="about-preview section" id="mission">
+<section class="relative bg-cream section" id="mission">
   <div class="shell">
-    <div class="about-preview-grid">
-      <div class="about-preview-copy reveal">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-11 lg:gap-20 items-center">
+      <div class="reveal">
         <p class="kicker">Our mission</p>
-        <h2>A historic path.<br /><span>A new beginning.</span></h2>
+        <h2 class="mb-5">A historic path.<br /><span>A new beginning.</span></h2>
         <p class="lead">
           At Higa Power, we believe in the life-changing impact of the Camino de Santiago for women seeking courage, clarity, and renewal.
         </p>
-        <p class="mission-desc">
+        <p class="text-muted text-[17px] leading-[1.8] mt-4 mb-7">
           We sponsor deserving women to embark on this historic pilgrimage, providing full resources, logistics, and ongoing mentorship so each pilgrim can focus entirely on self-discovery and personal transformation.
         </p>
 
-        <div class="mission-highlights">
-          <div class="highlight-item">
-            <span class="highlight-icon" aria-hidden="true">🥾</span>
-            <div class="highlight-text">
-              <strong>Inward Journey</strong>
-              <span>800+ km of reflection & resilience</span>
+        <div class="flex flex-col gap-4 mb-8.5">
+          <div class="flex items-center gap-4 p-3 sm:p-4 rounded-2xl bg-white/70 border border-line hover:bg-white hover:translate-x-1 transition-all duration-200">
+            <span class="text-[22px] w-11 h-11 flex items-center justify-center rounded-xl bg-[#f3e7fa] shrink-0" aria-hidden="true">🥾</span>
+            <div class="flex flex-col gap-0.5">
+              <strong class="font-display text-base font-bold text-ink">Inward Journey</strong>
+              <span class="text-sm text-muted leading-tight">800+ km of reflection & resilience</span>
             </div>
           </div>
-          <div class="highlight-item">
-            <span class="highlight-icon" aria-hidden="true">💫</span>
-            <div class="highlight-text">
-              <strong>Full Sponsorship</strong>
-              <span>Accommodations and logistics covered</span>
+          <div class="flex items-center gap-4 p-3 sm:p-4 rounded-2xl bg-white/70 border border-line hover:bg-white hover:translate-x-1 transition-all duration-200">
+            <span class="text-[22px] w-11 h-11 flex items-center justify-center rounded-xl bg-[#f3e7fa] shrink-0" aria-hidden="true">💫</span>
+            <div class="flex flex-col gap-0.5">
+              <strong class="font-display text-base font-bold text-ink">Full Sponsorship</strong>
+              <span class="text-sm text-muted leading-tight">Accommodations and logistics covered</span>
             </div>
           </div>
-          <div class="highlight-item">
-            <span class="highlight-icon" aria-hidden="true">👭</span>
-            <div class="highlight-text">
-              <strong>Sisterhood & Care</strong>
-              <span>Guided mentorship from founder Ellie</span>
+          <div class="flex items-center gap-4 p-3 sm:p-4 rounded-2xl bg-white/70 border border-line hover:bg-white hover:translate-x-1 transition-all duration-200">
+            <span class="text-[22px] w-11 h-11 flex items-center justify-center rounded-xl bg-[#f3e7fa] shrink-0" aria-hidden="true">👭</span>
+            <div class="flex flex-col gap-0.5">
+              <strong class="font-display text-base font-bold text-ink">Sisterhood & Care</strong>
+              <span class="text-sm text-muted leading-tight">Guided mentorship from founder Ellie</span>
             </div>
           </div>
         </div>
 
-        <div class="about-preview-actions">
+        <div class="flex flex-wrap gap-4">
           <a class="button button-dark" href="/about">
             Our story & founder <span aria-hidden="true">→</span>
           </a>
@@ -48,17 +48,18 @@
         </div>
       </div>
 
-      <div class="about-preview-image reveal">
-        <div class="image-wrapper">
+      <div class="relative max-w-[560px] lg:max-w-none reveal">
+        <div class="relative block before:content-[''] before:absolute before:z-2 before:-top-3.5 before:-left-3.5 before:w-20 before:h-20 before:border-t-3 before:border-l-3 before:border-pink before:rounded-tl-xs">
           <img
             src="/assets/images/camino-gateway.jpg"
             alt="The gateway on the Camino Francés"
             width="1200"
             height="1600"
             loading="lazy"
+            class="w-full max-h-[440px] sm:max-h-[590px] object-cover rounded-[4px_60px_4px_4px] sm:rounded-[4px_90px_4px_4px] shadow-[0_24px_60px_rgba(42,9,63,0.14)] block"
           />
-          <div class="image-caption">
-            <span class="caption-dot" aria-hidden="true"></span>
+          <div class="absolute bottom-3.5 sm:bottom-5.5 left-3.5 sm:left-5.5 py-2 sm:py-2.5 px-3.5 sm:px-4.5 rounded-full text-white bg-[#18051f]/82 backdrop-blur-md text-xs sm:text-[13px] font-semibold tracking-wide flex items-center gap-2.5 shadow-[0_8px_30px_rgba(0,0,0,0.3)] z-3">
+            <span class="w-2 h-2 rounded-full bg-pink shadow-[0_0_10px_#f027c5] shrink-0" aria-hidden="true"></span>
             <span>The gateway on the Camino Francés</span>
           </div>
         </div>
@@ -66,177 +67,3 @@
     </div>
   </div>
 </section>
-
-<style>
-  .about-preview {
-    position: relative;
-    background: var(--color-cream);
-  }
-
-  .about-preview-grid {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: clamp(48px, 7vw, 110px);
-    align-items: center;
-  }
-
-  .about-preview-copy h2 {
-    margin-bottom: 20px;
-  }
-
-  .mission-desc {
-    color: var(--color-muted);
-    font-size: 17px;
-    line-height: 1.8;
-    margin-top: 16px;
-    margin-bottom: 28px;
-  }
-
-  .mission-highlights {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 34px;
-  }
-
-  .highlight-item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 12px 16px;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid var(--color-line);
-    transition: transform 0.2s ease, background 0.2s ease;
-  }
-
-  .highlight-item:hover {
-    background: white;
-    transform: translateX(4px);
-  }
-
-  .highlight-icon {
-    font-size: 22px;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    background: #f3e7fa;
-    flex-shrink: 0;
-  }
-
-  .highlight-text {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .highlight-text strong {
-    font-family: var(--font-display);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--color-ink);
-  }
-
-  .highlight-text span {
-    font-size: 14px;
-    color: var(--color-muted);
-    line-height: 1.4;
-  }
-
-  .about-preview-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  /* Image Column */
-  .about-preview-image {
-    position: relative;
-  }
-
-  .image-wrapper {
-    position: relative;
-    display: block;
-  }
-
-  .image-wrapper::before {
-    content: '';
-    position: absolute;
-    z-index: 2;
-    inset: -14px auto auto -14px;
-    width: 80px;
-    height: 80px;
-    border-top: 3px solid var(--color-pink);
-    border-left: 3px solid var(--color-pink);
-    border-top-left-radius: 4px;
-  }
-
-  .image-wrapper img {
-    width: 100%;
-    max-height: 590px;
-    object-fit: cover;
-    border-radius: 4px 90px 4px 4px;
-    box-shadow: 0 24px 60px rgba(42, 9, 63, 0.14);
-    display: block;
-  }
-
-  .image-caption {
-    position: absolute;
-    bottom: 22px;
-    left: 22px;
-    padding: 10px 18px;
-    border-radius: 999px;
-    color: white;
-    background: rgba(24, 5, 31, 0.82);
-    backdrop-filter: blur(12px);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    z-index: 3;
-  }
-
-  .caption-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--color-pink);
-    box-shadow: 0 0 10px var(--color-pink);
-    flex-shrink: 0;
-  }
-
-  @media (max-width: 960px) {
-    .about-preview-grid {
-      grid-template-columns: 1fr;
-      gap: 44px;
-    }
-
-    .about-preview-image {
-      max-width: 560px;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .image-wrapper img {
-      max-height: 440px;
-      border-radius: 4px 60px 4px 4px;
-    }
-
-    .image-caption {
-      font-size: 12px;
-      padding: 8px 14px;
-      bottom: 14px;
-      left: 14px;
-    }
-
-    .highlight-item {
-      padding: 10px 14px;
-    }
-  }
-</style>

@@ -1,17 +1,30 @@
 ---
 ---
 
-<section class="hero" id="home">
-  <div class="hero-photo" role="img" aria-label="Women setting out on the Camino de Santiago"></div>
-  <div class="hero-shade"></div>
-  
-  <div class="hero-content shell">
+<section
+  class="relative min-h-[720px] sm:min-h-[760px] h-[100svh] grid items-center overflow-hidden text-white"
+  id="home"
+>
+  <div
+    class="absolute inset-0 bg-cover bg-no-repeat bg-[58%_center] sm:bg-center scale-[1.015] animate-[hero-in_1.4s_ease_both]"
+    style="background-image: url('/assets/images/hero-camino.jpg')"
+    role="img"
+    aria-label="Women setting out on the Camino de Santiago"
+  ></div>
+  <div
+    class="absolute inset-0"
+    style="background: linear-gradient(90deg, rgba(29, 5, 43, 0.94) 0%, rgba(66, 13, 88, 0.78) 47%, rgba(38, 10, 64, 0.18) 100%), linear-gradient(0deg, rgba(22, 4, 35, 0.42), transparent 50%);"
+  ></div>
+
+  <div class="shell relative z-2 mt-16 sm:mt-18">
     <p class="eyebrow">A Camino collective for women</p>
-    <h1>Every journey begins with one <em>brave step.</em></h1>
-    <p class="hero-copy">
+    <h1 class="max-w-[850px] mb-0 font-display text-[clamp(47px,15vw,68px)] sm:text-[clamp(54px,7.1vw,100px)] leading-[0.98] tracking-[-0.06em]">
+      Every journey begins with one <em class="text-pink not-italic">brave step.</em>
+    </h1>
+    <p class="max-w-[650px] mt-7 sm:mt-8 mb-0 text-white/80 text-[18px] sm:text-[clamp(18px,2vw,22px)] leading-[1.6]">
       We sponsor deserving women to walk the Camino de Santiago—creating space for courage, connection, and life-changing transformation.
     </p>
-    <div class="hero-actions">
+    <div class="flex flex-wrap gap-4 mt-9.5">
       <a class="button button-primary" href="/journey">
         Begin your journey <span aria-hidden="true">→</span>
       </a>
@@ -21,117 +34,24 @@
     </div>
   </div>
 
-  <div class="hero-note" aria-hidden="true">
-    <strong>Camino de Santiago</strong>
-    <span>Spain · Sisterhood · Transformation</span>
+  <div
+    class="hidden sm:grid absolute z-2 right-[max(24px,calc((100vw-var(--max))/2))] bottom-9 text-right gap-1"
+    aria-hidden="true"
+  >
+    <strong class="text-[13px] uppercase tracking-[0.12em] font-bold">Camino de Santiago</strong>
+    <span class="text-[13px] text-white/60">Spain · Sisterhood · Transformation</span>
   </div>
 
-  <a class="scroll-cue" href="#about" aria-label="Scroll to learn more">
-    <span></span>
+  <a
+    class="hidden sm:block absolute z-3 bottom-7.5 left-1/2 -translate-x-1/2 w-8 h-12 border border-white/35 rounded-[20px]"
+    href="#about"
+    aria-label="Scroll to learn more"
+  >
+    <span class="absolute top-2.5 left-[calc(50%-2px)] w-1 h-2 rounded-[3px] bg-white animate-[scroll-cue_1.8s_infinite]"></span>
   </a>
 </section>
 
 <style>
-  .hero {
-    min-height: 760px;
-    height: 100svh;
-    position: relative;
-    display: grid;
-    align-items: center;
-    overflow: hidden;
-    color: white;
-  }
-
-  .hero-photo,
-  .hero-shade {
-    position: absolute;
-    inset: 0;
-  }
-
-  .hero-photo {
-    background: url('/assets/images/hero-camino.jpg') center/cover no-repeat;
-    transform: scale(1.015);
-    animation: hero-in 1.4s ease both;
-  }
-
-  .hero-shade {
-    background: linear-gradient(90deg, rgba(29, 5, 43, 0.94) 0%, rgba(66, 13, 88, 0.78) 47%, rgba(38, 10, 64, 0.18) 100%),
-      linear-gradient(0deg, rgba(22, 4, 35, 0.42), transparent 50%);
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    margin-top: 70px;
-  }
-
-  .hero h1 {
-    max-width: 850px;
-    margin-bottom: 0;
-    font-size: clamp(54px, 7.1vw, 100px);
-    line-height: 0.98;
-    letter-spacing: -0.06em;
-  }
-
-  .hero-copy {
-    max-width: 650px;
-    margin: 30px 0 0;
-    color: rgba(255, 255, 255, 0.82);
-    font-size: clamp(18px, 2vw, 22px);
-    line-height: 1.6;
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 38px;
-  }
-
-  .hero-note {
-    position: absolute;
-    z-index: 2;
-    right: max(24px, calc((100vw - var(--max)) / 2));
-    bottom: 36px;
-    display: grid;
-    text-align: right;
-    gap: 4px;
-  }
-
-  .hero-note strong {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-
-  .hero-note span {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.62);
-  }
-
-  .scroll-cue {
-    position: absolute;
-    z-index: 3;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 32px;
-    height: 48px;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 20px;
-  }
-
-  .scroll-cue span {
-    position: absolute;
-    top: 10px;
-    left: calc(50% - 2px);
-    width: 4px;
-    height: 8px;
-    border-radius: 3px;
-    background: white;
-    animation: scroll-cue 1.8s infinite;
-  }
-
   @keyframes hero-in {
     from {
       transform: scale(1.08);
@@ -154,37 +74,6 @@
     100% {
       opacity: 0;
       transform: translateY(16px);
-    }
-  }
-
-  @media (max-width: 760px) {
-    .hero {
-      min-height: 720px;
-    }
-
-    .hero-content {
-      margin-top: 60px;
-    }
-
-    .hero h1 {
-      font-size: clamp(47px, 15vw, 68px);
-    }
-
-    .hero-copy {
-      font-size: 18px;
-    }
-
-    .hero-photo {
-      background-position: 58% center;
-    }
-
-    .hero-shade {
-      background: linear-gradient(90deg, rgba(30, 6, 46, 0.95), rgba(50, 10, 72, 0.65));
-    }
-
-    .hero-note,
-    .scroll-cue {
-      display: none;
     }
   }
 </style>

@@ -15,222 +15,67 @@ const isCurrent = (href: string) => {
 };
 ---
 
-<header class="site-header" data-header>
-  <a class="brand" href="/" aria-label="Higa Power home">
-    <img src="/assets/images/higa-power-logo.jpg" alt="Higa Power logo" width="180" height="180" />
-    <span>Higa Power</span>
+<header
+  class="fixed z-20 top-0 left-1/2 -translate-x-1/2 h-[78px] md:h-[92px] flex items-center justify-between w-[min(calc(100%-32px),var(--max))] md:w-[min(calc(100%-48px),var(--max))] text-white border-b border-white/22 transition-all duration-300 [&.is-scrolled]:top-3 [&.is-scrolled]:w-[min(calc(100%-24px),1220px)] md:[&.is-scrolled]:w-[min(calc(100%-32px),1220px)] [&.is-scrolled]:h-16 md:[&.is-scrolled]:h-[70px] [&.is-scrolled]:px-3.5 md:[&.is-scrolled]:px-5 [&.is-scrolled]:border [&.is-scrolled]:border-white/10 [&.is-scrolled]:rounded-full [&.is-scrolled]:bg-[#1c0627]/90 [&.is-scrolled]:backdrop-blur-xl [&.is-scrolled]:shadow-[0_12px_40px_rgba(17,2,24,0.2)]"
+  data-header
+>
+  <a class="flex items-center gap-3 font-display font-extrabold" href="/" aria-label="Higa Power home">
+    <img
+      src="/assets/images/higa-power-logo.jpg"
+      alt="Higa Power logo"
+      width="180"
+      height="180"
+      class="w-[54px] h-[54px] md:w-16 md:h-16 rounded-[9px] object-cover transition-all duration-300 header-scrolled:w-11 header-scrolled:h-11"
+    />
+    <span class="sr-only">Higa Power</span>
   </a>
-  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu-toggle>
+
+  <button
+    class="relative z-3 w-11.5 h-11.5 grid md:hidden place-content-center gap-1.5 p-0 border border-white/35 rounded-full bg-white/7 cursor-pointer group"
+    type="button"
+    aria-expanded="false"
+    aria-controls="primary-nav"
+    data-menu-toggle
+  >
     <span class="sr-only">Open menu</span>
-    <span></span>
-    <span></span>
+    <span class="w-5 h-0.5 bg-white transition-transform group-aria-expanded:translate-y-[4.5px] group-aria-expanded:rotate-45"></span>
+    <span class="w-5 h-0.5 bg-white transition-transform group-aria-expanded:-translate-y-[4.5px] group-aria-expanded:-rotate-45"></span>
   </button>
-  <nav id="primary-nav" aria-label="Primary navigation" data-nav>
-    <a href="/" class:list={[{ 'is-active': pathname === '/' }]}>Home</a>
+
+  <nav
+    id="primary-nav"
+    aria-label="Primary navigation"
+    class="fixed md:static z-2 inset-[-12px_-12px_auto] md:inset-auto h-[100dvh] md:h-auto flex flex-col md:flex-row items-start md:items-center justify-center md:justify-start gap-6 md:gap-7 p-9 pt-24 md:p-0 bg-[#18051f]/98 md:bg-transparent opacity-0 md:opacity-100 invisible md:visible -translate-y-3 md:translate-y-0 transition-all duration-250 font-semibold [&.is-open]:opacity-100 [&.is-open]:visible [&.is-open]:translate-y-0"
+    data-nav
+  >
+    <a
+      href="/"
+      class:list={[
+        'relative font-display text-[28px] md:text-base md:font-sans opacity-85 hover:opacity-100 hover:text-pink-soft focus-visible:opacity-100 focus-visible:text-pink-soft transition-colors',
+        { 'opacity-100 text-pink-soft after:content-[""] after:absolute after:-bottom-1 md:after:-bottom-1.5 after:inset-x-0 after:h-0.5 after:bg-pink after:rounded-sm': pathname === '/' },
+      ]}
+    >
+      Home
+    </a>
     {navItems.map((item) => (
-      <a href={item.href} class:list={[{ 'is-active': isCurrent(item.href) }]}>
+      <a
+        href={item.href}
+        class:list={[
+          'relative font-display text-[28px] md:text-base md:font-sans opacity-85 hover:opacity-100 hover:text-pink-soft focus-visible:opacity-100 focus-visible:text-pink-soft transition-colors',
+          { 'opacity-100 text-pink-soft after:content-[""] after:absolute after:-bottom-1 md:after:-bottom-1.5 after:inset-x-0 after:h-0.5 after:bg-pink after:rounded-sm': isCurrent(item.href) },
+        ]}
+      >
         {item.label}
       </a>
     ))}
-    <a class="nav-cta" href="/journey">Support us</a>
+    <a
+      class="mt-3 md:mt-0 px-5 py-2.5 border border-white/70 rounded-full text-lg md:text-sm hover:text-purple-deep hover:bg-white transition-colors"
+      href="/journey"
+    >
+      Support us
+    </a>
   </nav>
 </header>
-
-<style>
-  .site-header {
-    position: fixed;
-    z-index: 20;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 92px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: min(calc(100% - 48px), var(--max));
-    color: white;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
-    transition: width 0.3s, height 0.3s, padding 0.3s, background 0.3s, border 0.3s, border-radius 0.3s, top 0.3s;
-  }
-
-  .site-header.is-scrolled {
-    top: 12px;
-    width: min(calc(100% - 32px), 1220px);
-    height: 70px;
-    padding-inline: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 999px;
-    background: rgba(28, 6, 39, 0.91);
-    box-shadow: 0 12px 40px rgba(17, 2, 24, 0.2);
-    backdrop-filter: blur(16px);
-  }
-
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-family: var(--font-display);
-    font-weight: 800;
-  }
-
-  .brand img {
-    width: 64px;
-    height: 64px;
-    border-radius: 9px;
-    object-fit: cover;
-    transition: width 0.3s, height 0.3s;
-  }
-
-  .brand span {
-    display: none;
-  }
-
-  .site-header.is-scrolled .brand img {
-    width: 48px;
-    height: 48px;
-  }
-
-  nav {
-    display: flex;
-    align-items: center;
-    gap: 27px;
-    font-weight: 600;
-  }
-
-  nav a:not(.nav-cta) {
-    position: relative;
-    opacity: 0.86;
-    transition: opacity 0.2s, color 0.2s;
-  }
-
-  nav a:not(.nav-cta):hover,
-  nav a:not(.nav-cta):focus-visible {
-    opacity: 1;
-    color: var(--color-pink-soft);
-  }
-
-  nav a.is-active:not(.nav-cta) {
-    opacity: 1;
-    color: var(--color-pink-soft);
-  }
-
-  nav a.is-active:not(.nav-cta)::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--color-pink);
-    border-radius: 2px;
-  }
-
-  .nav-cta {
-    padding: 11px 19px;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    border-radius: 999px;
-    transition: background 0.2s, color 0.2s;
-  }
-
-  .nav-cta:hover {
-    color: var(--color-purple-deep);
-    background: white;
-  }
-
-  .menu-toggle {
-    display: none;
-  }
-
-  @media (max-width: 760px) {
-    .site-header {
-      width: calc(100% - 32px);
-      height: 78px;
-    }
-
-    .site-header.is-scrolled {
-      width: calc(100% - 24px);
-      height: 64px;
-      padding-inline: 14px;
-    }
-
-    .brand img {
-      width: 54px;
-      height: 54px;
-    }
-
-    .site-header.is-scrolled .brand img {
-      width: 44px;
-      height: 44px;
-    }
-
-    .menu-toggle {
-      position: relative;
-      z-index: 3;
-      width: 46px;
-      height: 46px;
-      display: grid;
-      place-content: center;
-      gap: 7px;
-      padding: 0;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.07);
-    }
-
-    .menu-toggle > span:not(.sr-only) {
-      width: 20px;
-      height: 2px;
-      background: white;
-      transition: transform 0.2s;
-    }
-
-    .menu-toggle[aria-expanded="true"] > span:nth-child(2) {
-      transform: translateY(4.5px) rotate(45deg);
-    }
-
-    .menu-toggle[aria-expanded="true"] > span:nth-child(3) {
-      transform: translateY(-4.5px) rotate(-45deg);
-    }
-
-    nav {
-      position: fixed;
-      z-index: 2;
-      inset: -12px -12px auto;
-      height: 100dvh;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 23px;
-      padding: 100px 34px 50px;
-      background: rgba(24, 5, 31, 0.98);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-12px);
-      transition: opacity 0.25s, visibility 0.25s, transform 0.25s;
-    }
-
-    nav.is-open {
-      opacity: 1;
-      visibility: visible;
-      transform: none;
-    }
-
-    nav a {
-      font-family: var(--font-display);
-      font-size: 28px;
-    }
-
-    nav a.is-active:not(.nav-cta)::after {
-      bottom: -4px;
-    }
-
-    nav .nav-cta {
-      margin-top: 12px;
-      font-size: 18px;
-    }
-  }
-</style>
 
 <script>
   const header = document.querySelector('[data-header]');
