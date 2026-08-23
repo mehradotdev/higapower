@@ -2,56 +2,105 @@
 ---
 
 <dialog
-  class="w-[min(92vw,1100px)] max-h-[92vh] p-0 border-0 rounded-2xl text-white bg-[#110416] shadow-[0_24px_100px_rgba(0,0,0,0.5)] overflow-hidden backdrop:bg-[#0a020e]/88 backdrop:backdrop-blur-md"
+  class="fixed inset-0 m-0 p-0 w-screen h-screen max-w-none max-h-none border-0 bg-transparent text-white overflow-hidden"
   data-lightbox
   aria-label="Media lightbox"
 >
+  <!-- Close Button -->
   <button
     type="button"
-    class="fixed z-10 top-5.5 right-5.5 w-11 h-11 border-0 rounded-full text-white bg-[#0a020e]/70 text-2xl sm:text-3xl cursor-pointer flex items-center justify-center hover:bg-pink hover:scale-105 transition-all duration-200"
+    class="fixed z-30 top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 border border-white/20 rounded-full text-white bg-[#18051f]/80 backdrop-blur-md text-2xl cursor-pointer flex items-center justify-center hover:bg-pink hover:border-pink hover:scale-105 transition-all duration-200 shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
     aria-label="Close media"
     data-lightbox-close
   >
     ×
   </button>
+  
+  <!-- Prev Button -->
   <button
     type="button"
-    class="fixed z-10 top-1/2 -translate-y-1/2 left-2.5 sm:left-5.5 w-10 sm:w-12 h-10 sm:h-12 border-0 rounded-full text-white bg-[#0a020e]/70 text-2xl sm:text-4xl leading-none cursor-pointer flex items-center justify-center hover:bg-pink hover:scale-105 transition-all duration-200 select-none"
+    class="fixed z-30 top-1/2 -translate-y-1/2 left-3 sm:left-6 w-11 sm:w-13 h-11 sm:h-13 border border-white/20 rounded-full text-white bg-[#18051f]/80 backdrop-blur-md text-2xl sm:text-4xl leading-none cursor-pointer flex items-center justify-center hover:bg-pink hover:border-pink hover:scale-105 transition-all duration-200 select-none shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
     aria-label="Previous item"
     data-lightbox-prev
   >
     ‹
   </button>
+  
+  <!-- Next Button -->
   <button
     type="button"
-    class="fixed z-10 top-1/2 -translate-y-1/2 right-2.5 sm:right-5.5 w-10 sm:w-12 h-10 sm:h-12 border-0 rounded-full text-white bg-[#0a020e]/70 text-2xl sm:text-4xl leading-none cursor-pointer flex items-center justify-center hover:bg-pink hover:scale-105 transition-all duration-200 select-none"
+    class="fixed z-30 top-1/2 -translate-y-1/2 right-3 sm:right-6 w-11 sm:w-13 h-11 sm:h-13 border border-white/20 rounded-full text-white bg-[#18051f]/80 backdrop-blur-md text-2xl sm:text-4xl leading-none cursor-pointer flex items-center justify-center hover:bg-pink hover:border-pink hover:scale-105 transition-all duration-200 select-none shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
     aria-label="Next item"
     data-lightbox-next
   >
     ›
   </button>
   
-  <div class="flex flex-col items-center justify-center p-3">
-    <img src="" alt="" data-lightbox-image class="w-full max-h-[78vh] object-contain rounded-lg" />
-    <video
-      data-lightbox-video
-      class="w-full max-h-[78vh] object-contain rounded-lg hidden bg-black"
-      controls
-      playsinline
-      preload="metadata"
-    ></video>
-    <p class="m-0 pt-3.5 px-5 pb-1.5 text-center text-white/85 text-[15px]" data-lightbox-caption></p>
+  <!-- Backdrop & Centered Media Stage -->
+  <div class="w-full h-full flex flex-col items-center justify-center p-4 sm:p-8 cursor-zoom-out" data-lightbox-backdrop>
+    <div class="relative flex flex-col items-center justify-center max-w-[min(92vw,1150px)] max-h-[88dvh] cursor-default" data-lightbox-inner>
+      <div class="relative flex items-center justify-center rounded-2xl overflow-hidden bg-[#18051f]/60 border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.7)]">
+        <img
+          src=""
+          alt=""
+          data-lightbox-image
+          class="max-w-[min(88vw,1100px)] max-h-[min(76dvh,800px)] w-auto h-auto object-contain rounded-2xl transition-opacity duration-200"
+        />
+        <video
+          data-lightbox-video
+          class="max-w-[min(88vw,1100px)] max-h-[min(76dvh,800px)] w-auto h-auto object-contain rounded-2xl hidden bg-black"
+          controls
+          playsinline
+          preload="metadata"
+        ></video>
+      </div>
+      <p
+        class="mt-3.5 px-5 py-2 rounded-full bg-[#18051f]/85 backdrop-blur-md border border-white/12 text-center text-white/90 text-sm md:text-[15px] font-medium tracking-wide shadow-lg max-w-[85vw] truncate"
+        data-lightbox-caption
+      ></p>
+    </div>
   </div>
 </dialog>
 
+<style>
+  dialog[data-lightbox] {
+    position: fixed;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-width: 100vw;
+    max-height: 100dvh;
+    border: none;
+    background: transparent;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 9999;
+  }
+
+  dialog[data-lightbox][open] {
+    display: flex;
+  }
+
+  dialog[data-lightbox]::backdrop {
+    background: rgba(9, 2, 13, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+</style>
+
 <script>
-  const lightbox = document.querySelector('[data-lightbox]');
-  const lightboxImage = document.querySelector('[data-lightbox-image]');
-  const lightboxVideo = document.querySelector('[data-lightbox-video]');
-  const lightboxCaption = document.querySelector('[data-lightbox-caption]');
-  const closeBtn = document.querySelector('[data-lightbox-close]');
-  const prevBtn = document.querySelector('[data-lightbox-prev]');
-  const nextBtn = document.querySelector('[data-lightbox-next]');
+  const lightbox = document.querySelector<HTMLDialogElement>('[data-lightbox]');
+  const lightboxImage = document.querySelector<HTMLImageElement>('[data-lightbox-image]');
+  const lightboxVideo = document.querySelector<HTMLVideoElement>('[data-lightbox-video]');
+  const lightboxCaption = document.querySelector<HTMLElement>('[data-lightbox-caption]');
+  const closeBtn = document.querySelector<HTMLButtonElement>('[data-lightbox-close]');
+  const prevBtn = document.querySelector<HTMLButtonElement>('[data-lightbox-prev]');
+  const nextBtn = document.querySelector<HTMLButtonElement>('[data-lightbox-next]');
 
   let currentIndex = 0;
   const getGalleryButtons = () => Array.from(document.querySelectorAll('[data-gallery] [data-full]'));
@@ -80,7 +129,14 @@
     const videoSrc = button.getAttribute('data-video-src') || '';
     const altText = button.getAttribute('data-alt') || '';
 
-    if (lightboxCaption) lightboxCaption.textContent = altText;
+    if (lightboxCaption) {
+      if (altText) {
+        lightboxCaption.textContent = altText;
+        lightboxCaption.style.display = 'block';
+      } else {
+        lightboxCaption.style.display = 'none';
+      }
+    }
 
     if (mediaType === 'video' && videoSrc && lightboxVideo instanceof HTMLVideoElement) {
       if (lightboxImage instanceof HTMLImageElement) lightboxImage.style.display = 'none';
@@ -123,13 +179,15 @@
   });
 
   lightbox?.addEventListener('click', (event) => {
-    if (event.target === lightbox) {
+    const target = event.target as HTMLElement;
+    if (target === lightbox || target.hasAttribute('data-lightbox-backdrop')) {
       closeLightbox();
     }
   });
 
   lightbox?.addEventListener('close', stopVideo);
 
+  // Keyboard navigation
   window.addEventListener('keydown', (event) => {
     if (!(lightbox instanceof HTMLDialogElement) || !lightbox.open) return;
     if (event.key === 'ArrowLeft') {
@@ -140,4 +198,30 @@
       closeLightbox();
     }
   });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  lightbox?.addEventListener('touchstart', (e: TouchEvent) => {
+    if (!e.changedTouches[0]) return;
+    touchStartX = e.changedTouches[0].clientX;
+    touchStartY = e.changedTouches[0].clientY;
+  }, { passive: true });
+
+  lightbox?.addEventListener('touchend', (e: TouchEvent) => {
+    if (!e.changedTouches[0]) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+    const dx = touchEndX - touchStartX;
+    const dy = touchEndY - touchStartY;
+    
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      if (dx < 0) {
+        showMediaAtIndex(currentIndex + 1);
+      } else {
+        showMediaAtIndex(currentIndex - 1);
+      }
+    }
+  }, { passive: true });
 </script>

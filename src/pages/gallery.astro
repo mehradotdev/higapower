@@ -27,28 +27,24 @@ import Footer from '../components/Footer.astro';
     <section class="section-dark">
       <div class="shell">
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-7 mb-12 pb-6 border-b border-white/12 reveal">
-          <div class="flex items-center gap-4">
-            <strong class="font-display text-4xl text-pink leading-none">{gallery.length}</strong>
-            <span class="text-white/70 text-sm uppercase tracking-wider">Moments captured along the way</span>
-          </div>
+          <span class="text-white/80 text-sm font-semibold uppercase tracking-wider">Moments captured along the way</span>
           <p class="m-0 text-white/50 text-sm">
             Click any photo, GIF, or video to view in full resolution.
           </p>
         </div>
 
         <div
-          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[170px] md:auto-rows-[200px] lg:auto-rows-[230px] gap-2 md:gap-3.5"
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-flow-dense auto-rows-[180px] sm:auto-rows-[200px] md:auto-rows-[220px] lg:auto-rows-[240px] gap-2.5 sm:gap-3.5"
           data-gallery
         >
           {gallery.map((photo, index) => (
             <button
               class:list={[
                 'relative overflow-hidden p-0 border-0 rounded-2xl bg-[#32133d] cursor-zoom-in group reveal',
-                // Desktop span 2 for 1st, 8th, 15th, 22nd items; row span 2 for 5th, 18th
-                index === 0 || index === 7 || index === 14 || index === 21
-                  ? 'max-sm:[&:nth-child(3n+1)]:col-span-2 lg:col-span-2'
-                  : 'max-sm:[&:nth-child(3n+1)]:col-span-2',
-                index === 4 || index === 17 ? 'lg:row-span-2' : '',
+                // 5 Featured wide photos (start, video, landmark, sisterhood, final celebration)
+                index === 0 || index === 2 || index === 6 || index === 14 || index === 26 ? 'col-span-2' : '',
+                // 4 Featured tall portrait photos (Sahagun gateway, GIF, Azzura, Santiago cathedral)
+                index === 4 || index === 12 || index === 22 || index === 25 ? 'row-span-2' : '',
               ]}
               type="button"
               data-index={index}

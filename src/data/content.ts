@@ -114,7 +114,7 @@ export const gallery: GalleryItem[] = [
   {
     thumb: '/assets/images/camino-gateway.jpg',
     full: '/assets/images/camino-gateway.jpg',
-    alt: 'The gateway on the Camino Francés',
+    alt: 'Halfway point of the Camino Francés (Sahagún)',
     type: 'image',
   },
   {
